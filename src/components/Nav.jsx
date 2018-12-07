@@ -4,7 +4,7 @@ import WhiteLogo from '../assets/images/lingomd-horiz-whitelogo-09.png';
 function Nav() {
   const navBackgroundStyles = {
     backgroundColor: '#1a90c9',
-    height: '85px'
+    height: '80px'
   }
   const navStyles = {
     display: 'flex',
