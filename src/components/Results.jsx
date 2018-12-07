@@ -2,11 +2,12 @@ import React from 'react';
 import SearchResults from './SearchResults';
 import Map from './Map';
 import SearchButton from './SearchButton';
+import Nav from './Nav';
 
 function Results() {
   return (
     <div>
-      Results
+      <Nav />
       <SearchButton />
       <SearchResults />
       <Map />

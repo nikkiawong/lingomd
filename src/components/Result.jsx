@@ -5,7 +5,6 @@ function Result() {
   return (
     <div>
       Result
-      <ResultDetail />
     </div>
   );
 }
