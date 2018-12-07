@@ -7,9 +7,9 @@ import Footer from './Footer';
 function App() {
   return (
     <div>
-      <Error404 />
       <Search />
       <Results />
+      <Error404 />
       <Footer/>
     </div>
   );
