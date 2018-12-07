@@ -16,9 +16,12 @@ function Search() {
     padding: '0',
     left: '50%',
     top: '25%',
-    transform: 'translateX(-50%)',
+    transform: 'translate(-50%)',
     textAlign: 'center',
     color: 'white'
+  }
+  const h1Styles = {
+    textShadow: '1px 0.5px #c6c6c6'
   }
   const backgroundStyles = {
     position: 'relative',
@@ -41,7 +44,7 @@ function Search() {
     <div style={backgroundStyles}>
       <div style={mainBodyStyles}>
         <img style={searchImageStyles} src={Image} alt='logo'></img>
-        <h1>How can we help you today?</h1>
+        <h1 style={h1Styles}>How can we help you today?</h1>
         <form>
           <input type='text' placeholder='I need...' />
             <div style={formSecondLineStyles}>
