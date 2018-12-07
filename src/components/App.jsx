@@ -3,13 +3,22 @@ import Error404 from './Error404';
 import Search from './Search';
 import Results from './Results';
 import Footer from './Footer';
+import ResultDetail from './ResultDetail';
+import { Router, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <Search />
-      <Results />
-      <Error404 />
+      <div>
+        <Switch>
+          <Route exact path='/'
+          component={Search} />
+          <Route exact path='/results'
+          component={Results} />
+          <Route exact path='/result-detail'
+          component={ResultDetail} />
+        </Switch>
+      </div>
       <Footer/>
     </div>
   );
