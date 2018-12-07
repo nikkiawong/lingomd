@@ -17,7 +17,6 @@ function SearchResults() {
   return (
     <div style={searchResultsStyles}>
       <ResultList/>
-      <Map />
     </div>
   );
 }
