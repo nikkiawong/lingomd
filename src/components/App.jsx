@@ -7,8 +7,11 @@ import ResultDetail from './ResultDetail';
 import { Router, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
+  const styles = {
+    fontFamily: '"Montserrat", sans-serif'
+  }
   return (
-    <div>
+    <div style={styles}>
       <div>
         <Switch>
           <Route exact path='/'
