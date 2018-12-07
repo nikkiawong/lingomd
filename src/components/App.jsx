@@ -8,7 +8,11 @@ import { Router, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
   const styles = {
-    fontFamily: '"Montserrat", sans-serif'
+    fontFamily: '"Montserrat", sans-serif',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: '100vh'
   }
   return (
     <div style={styles}>

@@ -25,7 +25,7 @@ function Search() {
   }
   const backgroundStyles = {
     position: 'relative',
-    height: '95vh',
+    height: '100vh',
     backgroundImage: 'url(https://images.unsplash.com/photo-1521453510357-5c7a77db7074?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2500&q=80)',
     backgroundImageRepeat: 'no-repeat',
     backgroundColor: 'black',

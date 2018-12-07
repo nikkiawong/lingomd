@@ -10,7 +10,6 @@ function Results() {
       <Nav />
       <ResultsSearch />
       <SearchResults />
-      <Map />
     </div>
   );
 }
