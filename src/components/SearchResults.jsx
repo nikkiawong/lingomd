@@ -5,12 +5,12 @@ import Map from './Map';
 function SearchResults() {
   const searchResultsStyles = {
     display: 'flex',
-    width: '50%',
+    width: '60%',
     marginLeft: 'auto',
     marginRight: 'auto',
     justifyContent: 'space-between',
     textAlign: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginTop: '80px',
     marginBottom: '80px'
   }

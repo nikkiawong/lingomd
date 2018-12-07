@@ -12,7 +12,8 @@ function ResultsSearch() {
     justifyContent: 'space-around',
     width: '50%',
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    marginBottom: '30px'
   }
   return (
     <div style={resultsSearchStyles}>
