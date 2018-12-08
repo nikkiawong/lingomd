@@ -1,5 +1,6 @@
 import React from 'react';
 import WhiteLogo from '../assets/images/lingomd-horiz-whitelogo-09.png';
+import { Link } from 'react-router-dom';
 
 function Nav() {
   const navBackgroundStyles = {
@@ -20,7 +21,9 @@ function Nav() {
     <div style={navBackgroundStyles}>
       <div style={navStyles}>
         <div>
-          <img style={logoStyles} src={WhiteLogo} />
+          <Link to='/'>
+            <img style={logoStyles} src={WhiteLogo} />
+          </Link>
         </div>
       </div>
     </div>
