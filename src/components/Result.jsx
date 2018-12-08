@@ -1,6 +1,7 @@
 import React from 'react';
 import ResultDetail from './ResultDetail';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Result(props) {
   const contactDivStyles = {
@@ -15,9 +16,13 @@ function Result(props) {
     marginBottom: '20px',
     paddingBottom: '20px'
   }
+  const h3LinkStyles = {
+    color: 'black',
+    textDecoration: 'none'
+  }
   return (
     <div style={resultStyles}>
-      <h3>{props.name}</h3>
+      <h3><Link style={h3LinkStyles} to='/result-detail'>{props.name}</Link></h3>
       <h4>{props.specialty}</h4>
       <p>{props.address}</p>
       <div style={contactDivStyles}>
