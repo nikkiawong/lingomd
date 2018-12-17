@@ -1,0 +1,2 @@
+export const SEARCH_DOCTOR = 'SEARCH_DOCTOR';
+export const RECEIVE_DOCTOR = 'RECEIVE_DOCTOR';

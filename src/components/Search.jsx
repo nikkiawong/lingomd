@@ -2,8 +2,12 @@ import React from 'react';
 import SearchButton from './SearchButton';
 import Image from '../assets/images/lingomd-colorlogo-05.png';
 import BackgroundImage from '../assets/images/bg-image.jpg';
+import { fetchDoctorList } from './../actions';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-function Search() {
+function Search({ dispatch }, props) {
+  let input;
   const searchImageStyles = {
     width: '175px',
     marginLeft: 'auto',
@@ -45,8 +49,15 @@ function Search() {
       <div style={mainBodyStyles}>
         <img style={searchImageStyles} src={Image} alt='logo'></img>
         <h1 style={h1Styles}>How can we help you today?</h1>
-        <form>
-          <input type='text' placeholder='I need...' />
+        <form onSubmit={e => {
+          if (!input.value.trim()) {
+            return;
+          }
+          dispatch(fetchDoctorList(input.value.trim()));
+        }}>
+          <input type='text' ref={node => {
+            input = node;
+          }} placeholder='I need...' />
             <div style={formSecondLineStyles}>
               <select>
                 <option>5</option>
@@ -58,11 +69,15 @@ function Search() {
               <p>miles from</p>
               <input type='text' />
             </div>
-            <SearchButton/>
+            <button type='submit'>Search</button>
         </form>
       </div>
     </div>
   );
 }
 
-export default Search;
+Search.propTypes = {
+  dispatch: PropTypes.func
+};
+
+export default connect()(Search);

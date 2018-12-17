@@ -1,5 +1,7 @@
 import React from 'react';
 import Result from './Result';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const masterResultList = [
   {
@@ -36,7 +38,7 @@ const masterResultList = [
   }
 ]
 
-function ResultList() {
+const ResultList = ({ newDoctors }) => {
   const resultListStyles = {
     textAlign: 'left',
     display: 'flex',
@@ -46,17 +48,23 @@ function ResultList() {
   }
   return (
     <div style={resultListStyles}>
-      {masterResultList.map((result, index) =>
-        <Result name={result.name}
-        specialty={result.specialty}
-        address={result.address}
-        phone={result.phone}
-        email={result.email}
-        website={result.website}
-        key={index}/>
+      {newDoctors.map((doctor) =>
+        <div key={doctor.key}>
+          <h2>{doctor.name}</h2>
+        </div>
       )}
     </div>
   );
 }
 
-export default ResultList;
+const mapStateToProps = state => {
+  return {
+    newDoctors: state.currentSearchDoctorList.newDoctors
+  };
+};
+
+ResultList.propTypes = {
+  newDoctors: PropTypes.array
+}
+
+export default connect(mapStateToProps)(ResultList);
