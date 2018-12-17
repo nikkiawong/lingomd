@@ -19,6 +19,11 @@ const ResultList = ({ newDoctors }) => {
         <div key={doctor.key}>
         <h2>{doctor.name}</h2>
         <h3>{doctor.specialty}</h3>
+        <ul>
+          {doctor.practices.map((practice, index) =>
+            <li key={index}>{practice.languages}</li>
+          )}
+        </ul>
         <p>{doctor.street}</p>
         <p>{doctor.street2}</p>
         <p>{doctor.cityState}</p>

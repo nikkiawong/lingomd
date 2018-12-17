@@ -9,6 +9,7 @@ export const initialState = {
       specialty: null,
       phone: null,
       website: null,
+      practices: [],
       key: 1234
     }]
   }
