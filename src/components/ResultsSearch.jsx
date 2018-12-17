@@ -1,7 +1,11 @@
 import React from 'react';
 import SearchButton from './SearchButton';
+import { fetchDoctorList } from './../actions';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-function ResultsSearch() {
+function ResultsSearch({ dispatch }, props) {
+  let input;
   const resultsSearchStyles = {
     textAlign: 'center',
     marginTop: '80px'
@@ -18,10 +22,18 @@ function ResultsSearch() {
   return (
     <div style={resultsSearchStyles}>
       <h2>Your Matches</h2>
-      <form>
+      <form onSubmit={e => {
+        e.preventDefault();
+        if (!input.value.trim()) {
+          return;
+        }
+        dispatch(fetchDoctorList(input.value.trim()));
+      }}>
         <div style={searchFormStyles}>
           <p>I'm looking for</p>
-          <input type='text' />
+          <input type='text' ref={node => {
+            input = node;
+          }} />
           <select>
             <option>5</option>
             <option>10</option>
@@ -32,10 +44,14 @@ function ResultsSearch() {
           <p>miles from</p>
           <input type='text' />
         </div>
-        <SearchButton />
+        <button type='submit'>Search</button>
       </form>
     </div>
   );
 }
 
-export default ResultsSearch;
+ResultsSearch.propTypes = {
+  dispatch: PropTypes.func
+}
+
+export default connect()(ResultsSearch);
