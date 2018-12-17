@@ -15,16 +15,24 @@ export function fetchDoctorList(userInput, distanceInput) {
     const localDoctorId = v4();
     dispatch(searchDoctor(localDoctorId));
     // return fetch(`https://api.betterdoctor.com/2016-03-01/doctors?user_key=` + API_KEY + `&query=` + userInput + `&location=40.78993,-73.95322,` + distanceInput + `&limit=100`).then(
-    return fetch(`https://api.betterdoctor.com/2016-03-01/doctors?user_key=` + API_KEY + `&query=` + userInput + `&location=40.78993,-73.95322,` + distanceInput + `&limit=100`).then(
+    return fetch(`https://api.betterdoctor.com/2016-03-01/doctors?user_key=` + API_KEY + `&query=` + userInput + `&location=fl-miami&limit=100`).then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {
       let newDoctors = [];
+      console.log(json);
       if (json.data) {
         Object.keys(json.data).map(doctorId => {
           const uniqueDoctorId = v4();
           let caretaker = json.data[doctorId];
-          console.log(caretaker.practices);
+          let languageList;
+          if (caretaker.practices[0].languages.length > 2) {
+            languageList = caretaker.practices[0].languages[0].name + ', ' + caretaker.practices[0].languages[1].name + ', ' + caretaker.practices[0].languages[2].name
+          } else if (caretaker.practices[0].languages.length > 1) {
+            languageList = caretaker.practices[0].languages[0].name + ', ' + caretaker.practices[0].languages[1].name
+          } else {
+            languageList = caretaker.practices[0].languages[0].name
+          }
           let doctorObject = {
             name: caretaker.profile.first_name + ' ' + caretaker.profile.last_name + ' ' + caretaker.profile.title,
             street: caretaker.practices[0].visit_address.street,
@@ -33,7 +41,7 @@ export function fetchDoctorList(userInput, distanceInput) {
             specialty: null,
             phone: caretaker.practices[0].phones[0].number,
             website: caretaker.practices[0].website,
-            practices: [caretaker.practices],
+            languages: languageList,
             displayDetail: false,
             key: uniqueDoctorId
           };
