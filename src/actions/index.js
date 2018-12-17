@@ -11,9 +11,10 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 export function fetchDoctorList(userInput, distanceInput) {
   return function (dispatch) {
     console.log(distanceInput);
+    console.log(userInput);
     const localDoctorId = v4();
     dispatch(searchDoctor(localDoctorId));
-    return fetch('https://api.betterdoctor.com/2016-03-01/doctors?user_key=a11e36e0cf776d3fb202cf54791be074&query=' + userInput).then(
+    return fetch(`https://api.betterdoctor.com/2016-03-01/doctors?user_key=` + API_KEY + `&query=` + userInput + `&location=37.773,-122.413,` + distanceInput).then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {
@@ -22,12 +23,13 @@ export function fetchDoctorList(userInput, distanceInput) {
         Object.keys(json.data).map(doctorId => {
           const uniqueDoctorId = v4();
           let caretaker = json.data[doctorId];
-          console.log(caretaker);
           let doctorObject = {
             name: caretaker.profile.first_name + ' ' + caretaker.profile.last_name + ' ' + caretaker.profile.title,
+            address: caretaker.practices[0].visit_address.street,
             displayDetail: false,
             key: uniqueDoctorId
           };
+          console.log(doctorObject);
           newDoctors.push(doctorObject);
         });
         dispatch(receiveDoctor(newDoctors));

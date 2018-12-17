@@ -3,7 +3,7 @@ export const initialState = {
     isFetching: false,
     newDoctors: [{
       name: null,
-      distance: null,
+      address: [],
       key: 1234
     }]
   }

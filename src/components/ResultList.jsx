@@ -52,6 +52,7 @@ const ResultList = ({ newDoctors }) => {
       {newDoctors.map((doctor) =>
         <div key={doctor.key}>
         <h2>{doctor.name}</h2>
+        <p>{doctor.address}</p>
         </div>
       )}
       </div>
