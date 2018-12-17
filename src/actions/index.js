@@ -23,9 +23,15 @@ export function fetchDoctorList(userInput, distanceInput) {
         Object.keys(json.data).map(doctorId => {
           const uniqueDoctorId = v4();
           let caretaker = json.data[doctorId];
+          console.log(caretaker.practices[0].website);
           let doctorObject = {
             name: caretaker.profile.first_name + ' ' + caretaker.profile.last_name + ' ' + caretaker.profile.title,
-            address: caretaker.practices[0].visit_address.street,
+            street: caretaker.practices[0].visit_address.street,
+            street2: caretaker.practices[0].visit_address.street2,
+            cityState: caretaker.practices[0].visit_address.city + ', ' + caretaker.practices[0].visit_address.state + ' ' + caretaker.practices[0].visit_address.zip,
+            specialty: caretaker.specialties[0].name,
+            phone: caretaker.practices[0].phones[0].number,
+            website: caretaker.practices[0].website,
             displayDetail: false,
             key: uniqueDoctorId
           };

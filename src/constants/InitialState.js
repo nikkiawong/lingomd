@@ -3,7 +3,12 @@ export const initialState = {
     isFetching: false,
     newDoctors: [{
       name: null,
-      address: [],
+      street: null,
+      street2: null,
+      cityState: null,
+      specialty: null,
+      phone: null,
+      website: null,
       key: 1234
     }]
   }
