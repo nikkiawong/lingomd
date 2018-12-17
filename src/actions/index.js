@@ -8,8 +8,9 @@ export const searchDoctor = (localDoctorId) => ({
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export function fetchDoctorList(userInput) {
+export function fetchDoctorList(userInput, distanceInput) {
   return function (dispatch) {
+    console.log(distanceInput);
     const localDoctorId = v4();
     dispatch(searchDoctor(localDoctorId));
     return fetch('https://api.betterdoctor.com/2016-03-01/doctors?user_key=a11e36e0cf776d3fb202cf54791be074&query=' + userInput).then(

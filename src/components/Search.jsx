@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 function Search({ dispatch }, props) {
   let input;
+  let distanceInput;
   const searchImageStyles = {
     width: '175px',
     marginLeft: 'auto',
@@ -55,18 +56,22 @@ function Search({ dispatch }, props) {
           if (!input.value.trim()) {
             return;
           }
-          dispatch(fetchDoctorList(input.value.trim()));
+          let userInput = input.value.trim();
+          let inputtedDistance = distanceInput.value;
+          dispatch(fetchDoctorList(userInput, inputtedDistance));
         }}>
           <input type='text' ref={node => {
             input = node;
           }} placeholder='I need...' />
             <div style={formSecondLineStyles}>
-              <select>
-                <option>5</option>
-                <option>10</option>
-                <option>15</option>
-                <option>20</option>
-                <option>30</option>
+              <select ref={node => {
+                distanceInput = node;
+              }}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
               </select>
               <p>miles from</p>
               <input type='text' />

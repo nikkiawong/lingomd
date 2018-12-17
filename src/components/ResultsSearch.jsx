@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 function ResultsSearch({ dispatch }, props) {
   let input;
+  let distanceInput;
   const resultsSearchStyles = {
     textAlign: 'center',
     marginTop: '80px'
@@ -27,19 +28,23 @@ function ResultsSearch({ dispatch }, props) {
         if (!input.value.trim()) {
           return;
         }
-        dispatch(fetchDoctorList(input.value.trim()));
+        let userInput = input.value.trim();
+        let inputtedDistance = distanceInput.value;
+        dispatch(fetchDoctorList(userInput, inputtedDistance));
       }}>
         <div style={searchFormStyles}>
           <p>I'm looking for</p>
           <input type='text' ref={node => {
             input = node;
           }} />
-          <select>
-            <option>5</option>
-            <option>10</option>
-            <option>15</option>
-            <option>20</option>
-            <option>30</option>
+          <select ref={node => {
+            distanceInput = node;
+          }}>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
           </select>
           <p>miles from</p>
           <input type='text' />
