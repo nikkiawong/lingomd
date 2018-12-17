@@ -17,16 +17,13 @@ const ResultList = ({ newDoctors }) => {
       <div style={resultListStyles}>
       {newDoctors.map((doctor) =>
         <div key={doctor.key}>
-        <h2>{doctor.name}</h2>
-        <h3>{doctor.specialty}</h3>
-        <p>{doctor.languages}</p>
-        <p>{doctor.street}</p>
-        <p>{doctor.street2}</p>
-        <p>{doctor.cityState}</p>
-        <div>
+          <h2>{doctor.name}</h2>
+          <h3>{doctor.specialty}</h3>
+          <p>{doctor.languages}</p>
+          <p>{doctor.street}</p>
+          <p>{doctor.street2}</p>
+          <p>{doctor.cityState}</p>
           <p>{doctor.phone}</p>
-          <p><a href={doctor.website}>Website</a></p>
-        </div>
         </div>
       )}
       </div>

@@ -8,7 +8,6 @@ export const initialState = {
       cityState: null,
       specialty: null,
       phone: null,
-      website: null,
       languages: null,
       key: 1234
     }]
