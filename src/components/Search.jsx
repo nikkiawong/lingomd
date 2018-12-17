@@ -5,6 +5,7 @@ import BackgroundImage from '../assets/images/bg-image.jpg';
 import { fetchDoctorList } from './../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Search({ dispatch }, props) {
   let input;
@@ -50,6 +51,7 @@ function Search({ dispatch }, props) {
         <img style={searchImageStyles} src={Image} alt='logo'></img>
         <h1 style={h1Styles}>How can we help you today?</h1>
         <form onSubmit={e => {
+          e.preventDefault();
           if (!input.value.trim()) {
             return;
           }
@@ -71,6 +73,7 @@ function Search({ dispatch }, props) {
             </div>
             <button type='submit'>Search</button>
         </form>
+        <Link to='/results'>Results</Link>
       </div>
     </div>
   );

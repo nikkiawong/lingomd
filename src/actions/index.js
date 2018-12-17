@@ -21,8 +21,9 @@ export function fetchDoctorList(userInput) {
         Object.keys(json.data).map(doctorId => {
           const uniqueDoctorId = v4();
           let caretaker = json.data[doctorId];
+          console.log(caretaker);
           let doctorObject = {
-            name: caretaker.profile.first_name,
+            name: caretaker.profile.first_name + ' ' + caretaker.profile.last_name + ' ' + caretaker.profile.title,
             displayDetail: false,
             key: uniqueDoctorId
           };

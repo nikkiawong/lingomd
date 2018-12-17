@@ -47,19 +47,22 @@ const ResultList = ({ newDoctors }) => {
     width: '50%'
   }
   return (
-    <div style={resultListStyles}>
+    <div>
+      <div style={resultListStyles}>
       {newDoctors.map((doctor) =>
         <div key={doctor.key}>
-          <h2>{doctor.name}</h2>
+        <h2>{doctor.name}</h2>
         </div>
       )}
+      </div>
     </div>
   );
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    newDoctors: state.currentSearchDoctorList.newDoctors
+    newDoctors: state.newDoctors
   };
 };
 

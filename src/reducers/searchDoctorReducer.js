@@ -13,6 +13,7 @@ const searchDoctorReducer = (state = initialState.currentSearchDoctorList, actio
       isFetching: false,
       newDoctors: action.newDoctors
     });
+    console.log(receivedDoctorSearchSlice);
     return receivedDoctorSearchSlice;
   default:
     return state;
