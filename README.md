@@ -85,6 +85,9 @@
 
 * Clone this repository
 * Run `npm install`
+* Create .env file in root directory
+  * REACT_APP_API_KEY=[your BetterDoctor API key]
+  * REACT_APP_GEOCODE_API_KEY=[your Google Geocode API key]
 
 ## Development server
 
