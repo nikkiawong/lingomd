@@ -11,6 +11,7 @@ const searchDoctorReducer = (state = initialState.currentSearchDoctorList, actio
   case types.RECEIVE_DOCTOR:
     const receivedDoctorSearchSlice = Object.assign({}, state, {
       isFetching: false,
+      isValid: true,
       newDoctors: action.newDoctors
     });
     console.log(receivedDoctorSearchSlice);

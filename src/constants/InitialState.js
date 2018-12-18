@@ -1,6 +1,7 @@
 export const initialState = {
   currentSearchDoctorList: {
     isFetching: false,
+    isValid: false,
     newDoctors: [{
       name: null,
       street: null,
