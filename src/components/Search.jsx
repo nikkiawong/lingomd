@@ -2,7 +2,7 @@ import React from 'react';
 import SearchButton from './SearchButton';
 import Image from '../assets/images/lingomd-colorlogo-05.png';
 import BackgroundImage from '../assets/images/bg-image.jpg';
-import { fetchDoctorList } from './../actions';
+import { fetchDoctorList, fetchGeocode } from './../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
@@ -16,6 +16,7 @@ class Search extends React.Component {
   render() {
     let input;
     let distanceInput;
+    let locationInput;
     const searchImageStyles = {
       width: '175px',
       marginLeft: 'auto',
@@ -122,7 +123,8 @@ class Search extends React.Component {
               }
               let userInput = input.value.trim();
               let inputtedDistance = distanceInput.value;
-              this.props.dispatch(fetchDoctorList(userInput, inputtedDistance));
+              let inputtedLocation = locationInput.value.trim();
+              this.props.dispatch(fetchGeocode(userInput, inputtedDistance, inputtedLocation));
             }}>
               <input style={inputStyles} type='text' ref={node => {
                 input = node;
@@ -138,7 +140,9 @@ class Search extends React.Component {
                 <option value="30">30</option>
               </select>
               <p>miles from</p>
-              <input style={secondInputStyles} type='text' />
+              <input style={secondInputStyles} type='text' ref={node => {
+                locationInput = node;
+              }}/>
               </div>
               <button style={searchButtonStyles} type='submit'>Search</button>
             </form>

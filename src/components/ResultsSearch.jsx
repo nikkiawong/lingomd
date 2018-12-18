@@ -1,12 +1,13 @@
 import React from 'react';
 import SearchButton from './SearchButton';
-import { fetchDoctorList } from './../actions';
+import { fetchDoctorList, fetchGeocode } from './../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 function ResultsSearch({ dispatch }, props) {
   let input;
   let distanceInput;
+  let locationInput;
   const resultsSearchStyles = {
     textAlign: 'center',
     marginTop: '80px'
@@ -68,7 +69,8 @@ function ResultsSearch({ dispatch }, props) {
         }
         let userInput = input.value.trim();
         let inputtedDistance = distanceInput.value;
-        dispatch(fetchDoctorList(userInput, inputtedDistance));
+        let inputtedLocation = locationInput.value.trim();
+        dispatch(fetchGeocode(userInput, inputtedDistance, inputtedLocation));
       }}>
         <div style={searchFormStyles}>
           <p>I'm looking for</p>
@@ -85,7 +87,9 @@ function ResultsSearch({ dispatch }, props) {
             <option value="30">30</option>
           </select></span>
           <p>miles from</p>
-          <input style={inputStyles} type='text' />
+          <input style={inputStyles} type='text' ref={node => {
+            locationInput = node;
+          }}/>
         </div>
         <button style={searchButtonStyles} type='submit'>Search</button>
       </form>
