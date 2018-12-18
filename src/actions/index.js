@@ -10,8 +10,6 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 export function fetchDoctorList(userInput, distanceInput) {
   return function (dispatch) {
-    console.log(distanceInput);
-    console.log(userInput);
     const localDoctorId = v4();
     dispatch(searchDoctor(localDoctorId));
     return fetch(`https://api.betterdoctor.com/2016-03-01/doctors?user_key=` + API_KEY + `&query=` + userInput + `&location=25.761681,-80.191788,` + distanceInput + `&limit=100`).then(
@@ -24,6 +22,7 @@ export function fetchDoctorList(userInput, distanceInput) {
           const uniqueDoctorId = v4();
           let caretaker = json.data[doctorId];
           let languageList;
+
           if (caretaker.practices[0].languages.length > 2) {
             languageList = caretaker.practices[0].languages[0].name + ', ' + caretaker.practices[0].languages[1].name + ', ' + caretaker.practices[0].languages[2].name
           } else if (caretaker.practices[0].languages.length > 1) {
@@ -31,7 +30,9 @@ export function fetchDoctorList(userInput, distanceInput) {
           } else {
             languageList = caretaker.practices[0].languages[0].name
           }
+
           let doctorObject;
+
           if (caretaker.practices[0].languages.length > 1) {
             doctorObject = {
               name: caretaker.profile.first_name + ' ' + caretaker.profile.last_name + ' ' + caretaker.profile.title,
@@ -49,7 +50,7 @@ export function fetchDoctorList(userInput, distanceInput) {
               key: uniqueDoctorId
             }
           }
-          console.log(doctorObject);
+
           if (doctorObject.languages) {
             newDoctors.push(doctorObject);
           }
@@ -69,7 +70,3 @@ export const receiveDoctor = (newDoctors) => ({
   type: types.RECEIVE_DOCTOR,
   newDoctors
 });
-
-// export const showDoctors = () => ({
-//   type: types.SHOW_DOCTORS
-// });

@@ -78,7 +78,7 @@ function Search({ dispatch }, props) {
             </div>
             <button type='submit'>Search</button>
         </form>
-        <Link to='/results'>Results</Link>
+
       </div>
     </div>
   );

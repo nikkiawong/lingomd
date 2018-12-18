@@ -8,8 +8,7 @@ const ResultList = ({ newDoctors }) => {
     textAlign: 'left',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around',
-    width: '50%'
+    justifyContent: 'space-around'
   }
 
   return (
@@ -19,7 +18,7 @@ const ResultList = ({ newDoctors }) => {
         <div key={doctor.key}>
           <h2>{doctor.name}</h2>
           <h3>{doctor.specialty}</h3>
-          <p>{doctor.languages}</p>
+          <h4>{doctor.languages}</h4>
           <p>{doctor.street}</p>
           <p>{doctor.street2}</p>
           <p>{doctor.cityState}</p>
