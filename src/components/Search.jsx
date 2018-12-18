@@ -21,7 +21,7 @@ function Search({ dispatch }, props) {
     margin: '0',
     padding: '0',
     left: '50%',
-    top: '25%',
+    top: '21%',
     transform: 'translate(-50%)',
     textAlign: 'center',
     color: 'white'
@@ -58,7 +58,7 @@ function Search({ dispatch }, props) {
     fontFamily: '"Montserrat", sans-serif',
     fontStyle: 'italic',
     color: 'white',
-    fontSize: '25px'
+    fontSize: '22px'
   }
   const secondInputStyles = {
     backgroundColor: 'transparent',
@@ -68,16 +68,16 @@ function Search({ dispatch }, props) {
     textAlign: 'center',
     fontFamily: '"Montserrat", sans-serif',
     color: 'white',
-    fontSize: '25px'
+    fontSize: '22px'
   }
   const formStyles = {
     color: 'white',
-    fontSize: '25px'
+    fontSize: '22px'
   }
   const selectStyles = {
     height: '50px',
     width: '70px',
-    fontSize: '25px',
+    fontSize: '22px',
     backgroundColor: 'transparent',
     border: 'none',
     color: 'white',
