@@ -40,18 +40,57 @@ function Search({ dispatch }, props) {
   }
   const formSecondLineStyles = {
     display: 'flex',
-    width: '30%',
+    width: '550px',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    marginTop: '12px'
+  }
+  const inputStyles = {
+    backgroundColor: 'transparent',
+    outline: 'none',
+    border: 'none',
+    height: '50px',
+    width: '450px',
+    borderBottom: '1px solid white',
+    textAlign: 'center',
+    fontFamily: '"Montserrat", sans-serif',
+    fontStyle: 'italic',
+    color: 'white',
+    fontSize: '25px'
+  }
+  const secondInputStyles = {
+    backgroundColor: 'transparent',
+    outline: 'none',
+    border: 'none',
+    borderBottom: '1px solid white',
+    textAlign: 'center',
+    fontFamily: '"Montserrat", sans-serif',
+    color: 'white',
+    fontSize: '25px'
+  }
+  const formStyles = {
+    color: 'white',
+    fontSize: '25px'
+  }
+  const selectStyles = {
+    height: '50px',
+    width: '70px',
+    fontSize: '25px',
+    backgroundColor: 'transparent',
+    border: 'none',
+    color: 'white',
+    fontFamily: '"Montserrat", sans-serif',
+    fontWeight: '300',
+    borderBottom: '1px solid white'
   }
   return (
     <div style={backgroundStyles}>
       <div style={mainBodyStyles}>
         <img style={searchImageStyles} src={Image} alt='logo'></img>
         <h1 style={h1Styles}>How can we help you today?</h1>
-        <form onSubmit={e => {
+        <form style={formStyles} onSubmit={e => {
           e.preventDefault();
           if (!input.value.trim()) {
             return;
@@ -60,11 +99,11 @@ function Search({ dispatch }, props) {
           let inputtedDistance = distanceInput.value;
           dispatch(fetchDoctorList(userInput, inputtedDistance));
         }}>
-          <input type='text' ref={node => {
+          <input style={inputStyles} type='text' ref={node => {
             input = node;
           }} placeholder='I need...' />
             <div style={formSecondLineStyles}>
-              <select ref={node => {
+              <select style={selectStyles} ref={node => {
                 distanceInput = node;
               }}>
                 <option value="5">5</option>
@@ -74,7 +113,7 @@ function Search({ dispatch }, props) {
                 <option value="30">30</option>
               </select>
               <p>miles from</p>
-              <input type='text' />
+              <input style={secondInputStyles} type='text' />
             </div>
             <button type='submit'>Search</button>
         </form>
