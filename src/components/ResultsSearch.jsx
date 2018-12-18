@@ -9,7 +9,8 @@ function ResultsSearch({ dispatch }, props) {
   let distanceInput;
   const resultsSearchStyles = {
     textAlign: 'center',
-    marginTop: '80px'
+    marginTop: '80px',
+    color: '#848484'
   }
   const searchFormStyles = {
     display: 'flex',
@@ -19,6 +20,30 @@ function ResultsSearch({ dispatch }, props) {
     marginLeft: 'auto',
     marginRight: 'auto',
     marginBottom: '30px'
+  }
+  const inputStyles = {
+    border: 'none',
+    borderBottom: '1px solid #848484',
+    outline: 'none',
+    color: '#848484',
+    fontSize: '16px',
+    textAlign: 'center',
+    fontFamily: '"Montserrat", sans-serif',
+    fontWeight: '300'
+  }
+  const selectStyles = {
+    backgroundColor: 'transparent',
+    border: 'none',
+    outline: 'none',
+    height: '25px',
+    borderRadius: '0',
+    fontFamily: '"Montserrat", sans-serif',
+    fontWeight: '300',
+    fontSize: '18px',
+    boxShadow: 'none'
+  }
+  const spanStyles = {
+    borderBottom: '1px solid #848484'
   }
   return (
     <div style={resultsSearchStyles}>
@@ -34,10 +59,10 @@ function ResultsSearch({ dispatch }, props) {
       }}>
         <div style={searchFormStyles}>
           <p>I'm looking for</p>
-          <input type='text' ref={node => {
+          <input style={inputStyles} type='text' ref={node => {
             input = node;
           }} />
-          <select ref={node => {
+          <span style={spanStyles}><select style={selectStyles} ref={node => {
             distanceInput = node;
           }}>
             <option value="5">5</option>
@@ -45,9 +70,9 @@ function ResultsSearch({ dispatch }, props) {
             <option value="15">15</option>
             <option value="20">20</option>
             <option value="30">30</option>
-          </select>
+          </select></span>
           <p>miles from</p>
-          <input type='text' />
+          <input style={inputStyles} type='text' />
         </div>
         <button type='submit'>Search</button>
       </form>
