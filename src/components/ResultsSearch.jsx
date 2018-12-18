@@ -9,8 +9,7 @@ function ResultsSearch({ dispatch }, props) {
   let distanceInput;
   const resultsSearchStyles = {
     textAlign: 'center',
-    marginTop: '80px',
-    color: '#848484'
+    marginTop: '80px'
   }
   const searchFormStyles = {
     display: 'flex',
@@ -19,7 +18,8 @@ function ResultsSearch({ dispatch }, props) {
     width: '50%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginBottom: '30px'
+    marginBottom: '30px',
+    color: '#848484'
   }
   const inputStyles = {
     border: 'none',
@@ -44,6 +44,19 @@ function ResultsSearch({ dispatch }, props) {
   }
   const spanStyles = {
     borderBottom: '1px solid #848484'
+  }
+  const searchButtonStyles = {
+    color: 'white',
+    backgroundColor: '#d22027',
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    paddingLeft: '30px',
+    paddingRight: '30px',
+    textDecoration: 'none',
+    fontFamily: '"Montserrat", sans-serif',
+    fontSize: '16px',
+    outline: 'none',
+    border: 'none'
   }
   return (
     <div style={resultsSearchStyles}>
@@ -74,7 +87,7 @@ function ResultsSearch({ dispatch }, props) {
           <p>miles from</p>
           <input style={inputStyles} type='text' />
         </div>
-        <button type='submit'>Search</button>
+        <button style={searchButtonStyles} type='submit'>Search</button>
       </form>
     </div>
   );

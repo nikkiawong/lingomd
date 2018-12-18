@@ -91,6 +91,20 @@ class Search extends React.Component {
       fontWeight: '300',
       borderBottom: '1px solid white'
     }
+    const searchButtonStyles = {
+      color: 'white',
+      backgroundColor: '#d22027',
+      paddingTop: '8px',
+      paddingBottom: '8px',
+      paddingLeft: '30px',
+      paddingRight: '30px',
+      textDecoration: 'none',
+      fontFamily: '"Montserrat", sans-serif',
+      fontSize: '16px',
+      outline: 'none',
+      border: 'none',
+      marginTop: '20px'
+    }
 
     const isValid = this.props.isValid;
     if (isValid) {
@@ -126,7 +140,7 @@ class Search extends React.Component {
               <p>miles from</p>
               <input style={secondInputStyles} type='text' />
               </div>
-              <button type='submit'>Search</button>
+              <button style={searchButtonStyles} type='submit'>Search</button>
             </form>
           </div>
         </div>
