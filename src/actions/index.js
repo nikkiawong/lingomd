@@ -58,6 +58,12 @@ export function fetchDoctorList(userInput, distanceInput, geocode) {
 
           let doctorObject;
 
+          let unmodifiedPhone = caretaker.practices[0].phones[0].number;
+          let modifiedPhone = unmodifiedPhone.split('');
+          modifiedPhone.splice(3,0,'-');
+          modifiedPhone.splice(7,0,'-');
+          modifiedPhone = modifiedPhone.join('');
+          
           if (caretaker.practices[0].languages.length > 1) {
             doctorObject = {
               name: caretaker.profile.first_name + ' ' + caretaker.profile.last_name + ' ' + caretaker.profile.title,
@@ -65,7 +71,7 @@ export function fetchDoctorList(userInput, distanceInput, geocode) {
               street2: caretaker.practices[0].visit_address.street2,
               cityState: caretaker.practices[0].visit_address.city + ', ' + caretaker.practices[0].visit_address.state + ' ' + caretaker.practices[0].visit_address.zip,
               specialty: null,
-              phone: caretaker.practices[0].phones[0].number,
+              phone: modifiedPhone,
               languages: languageList,
               center: {
                 lat: caretaker.practices[0].lat,
