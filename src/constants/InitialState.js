@@ -10,6 +10,7 @@ export const initialState = {
       specialty: null,
       phone: null,
       languages: null,
+      center: {},
       key: 1234
     }]
   }

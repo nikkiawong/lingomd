@@ -35,7 +35,6 @@ export function fetchGeocode(userInput, distanceInput, locationInput) {
 
 export function fetchDoctorList(userInput, distanceInput, geocode) {
   return function (dispatch) {
-    console.log(geocode);
     const localDoctorId = v4();
     dispatch(searchDoctor(localDoctorId));
     return fetch(`https://api.betterdoctor.com/2016-03-01/doctors?user_key=` + API_KEY + `&query=` + userInput + `&location=` + geocode + `,` + distanceInput + `&limit=100`).then(
@@ -68,6 +67,10 @@ export function fetchDoctorList(userInput, distanceInput, geocode) {
               specialty: null,
               phone: caretaker.practices[0].phones[0].number,
               languages: languageList,
+              center: {
+                lat: caretaker.practices[0].lat,
+                lng: caretaker.practices[0].lon
+              },
               displayDetail: false,
               key: uniqueDoctorId
             };

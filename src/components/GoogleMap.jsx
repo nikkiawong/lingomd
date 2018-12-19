@@ -1,5 +1,6 @@
 import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { connect } from 'react-redux';
 
 export class MapContainer extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ export class MapContainer extends React.Component {
   }
 
   render() {
+    const newDoctors = this.props.newDoctors;
     const style = {
       width: '425px',
       height: '700px',
@@ -32,8 +34,13 @@ export class MapContainer extends React.Component {
           zoom={14}
           style={style}
           onClick={this.onMapClicked}>
-          <Marker onClick={this.onMarkerClick}
-          name={'Current location'} />
+          {newDoctors.map((doctor) =>
+            <Marker
+              key={doctor.key}
+              name={doctor.name}
+              position={doctor.center}
+            />
+          )}
           <InfoWindow onClose={this.onInfoWindowClose}>
           <div>
           <h1>Name</h1>
@@ -46,6 +53,12 @@ export class MapContainer extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({
+const mapStateToProps = state => {
+  return {
+    newDoctors: state.newDoctors
+  }
+}
+
+export default connect(mapStateToProps)(GoogleApiWrapper({
   apiKey: process.env.REACT_APP_GEOCODE_API_KEY
-})(MapContainer)
+})(MapContainer))
