@@ -6,7 +6,6 @@ import { fetchDoctorList, fetchGeocode } from './../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import Test from './Test';
 
 class Search extends React.Component {
   constructor({ dispatch }, props) {

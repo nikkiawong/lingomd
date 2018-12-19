@@ -1,6 +1,5 @@
 import React from 'react';
 import ResultList from './ResultList';
-import Map from './Map';
 
 function SearchResults() {
   const searchResultsStyles = {

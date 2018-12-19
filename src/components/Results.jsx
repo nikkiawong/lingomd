@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchResults from './SearchResults';
-import Map from './Map';
 import Nav from './Nav';
 import ResultsSearch from './ResultsSearch';
 
