@@ -63,7 +63,35 @@ export class MapContainer extends React.Component {
         <div>
         <Map
         google={this.props.google}
-        zoom={14}
+        zoom={11}
+        style={style}
+        onClick={this.onMapClicked}
+        initialCenter={newDoctors[0].center}
+        bounds={bounds}
+        >
+        {newDoctors.map((doctor) =>
+          <Marker
+          key={doctor.key}
+          name={doctor.name}
+          position={doctor.center}
+          />
+        )}
+        <InfoWindow onClose={this.onInfoWindowClose}>
+        <div>
+        <h1>Name</h1>
+        </div>
+        </InfoWindow>
+        </Map>
+        </div>
+        </div>
+      );
+    } else {
+      return (
+        <div style={divStyle}>
+        <div>
+        <Map
+        google={this.props.google}
+        zoom={11}
         style={style}
         onClick={this.onMapClicked}
         initialCenter={{
@@ -87,10 +115,6 @@ export class MapContainer extends React.Component {
         </Map>
         </div>
         </div>
-      );
-    } else {
-      return (
-        <span></span>
       );
     }
   }
