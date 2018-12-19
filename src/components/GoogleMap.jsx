@@ -1,60 +1,51 @@
 import React from 'react';
-import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
-class GoogleMap extends React.Component {
+export class MapContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {}
-    }
-    // binding this to event-handler functions
-    this.onMarkerClick = this.onMarkerClick.bind(this);
-    this.onMapClick = this.onMapClick.bind(this);
   }
-  onMarkerClick = (props, marker, e) => {
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
-  }
-  onMapClick = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      });
-    }
-  }
+
   render() {
     const style = {
-      width: '50vw',
-      height: '75vh',
+      width: '425px',
+      height: '700px',
+      overflow: 'hidden',
+      transform: 'translate(-50% -50%)',
+    }
+    const divStyle = {
+      width: '425px',
+      height: '700px',
+      marginLeft: '15px'
+    }
+    const innerDivStyle = {
+      width: '80%',
       marginLeft: 'auto',
-      marginRight: 'auto'
+      marginRight: 'auto',
+      border: '1px solid blue'
     }
     return (
-      <Map
-        item
-        xs = { 12 }
-        style = { style }
-        google = { this.props.google }
-        onClick = { this.onMapClick }
-        zoom = { 14 }
-        initialCenter = {{ lat: 39.648209, lng: -75.711185 }}
-      >
-        <Marker
-          onClick = { this.onMarkerClick }
-          title = { 'Title' }
-          position = {{ lat: 39.648209, lng: -75.711185 }}
-          name = { 'Title' }
-        />
-      </Map>
+      <div style={divStyle}>
+        <div>
+          <Map
+          google={this.props.google}
+          zoom={14}
+          style={style}
+          onClick={this.onMapClicked}>
+          <Marker onClick={this.onMarkerClick}
+          name={'Current location'} />
+          <InfoWindow onClose={this.onInfoWindowClose}>
+          <div>
+          <h1>Name</h1>
+          </div>
+          </InfoWindow>
+          </Map>
+        </div>
+      </div>
     );
   }
 }
+
 export default GoogleApiWrapper({
-    api: (process.env.REACT_APP_GEOCODE_API_KEY)
-})(GoogleMap);
+  apiKey: process.env.REACT_APP_GEOCODE_API_KEY
+})(MapContainer)

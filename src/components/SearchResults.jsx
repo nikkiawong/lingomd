@@ -1,9 +1,11 @@
 import React from 'react';
 import ResultList from './ResultList';
+import MapContainer from './GoogleMap';
 
 function SearchResults() {
   const searchResultsStyles = {
     display: 'flex',
+    flexDirection: 'row',
     width: '60%',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -16,6 +18,7 @@ function SearchResults() {
   return (
     <div style={searchResultsStyles}>
       <ResultList/>
+      <MapContainer />
     </div>
   );
 }

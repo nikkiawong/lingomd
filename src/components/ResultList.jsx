@@ -8,7 +8,8 @@ const ResultList = ({ newDoctors }) => {
     textAlign: 'left',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    width: '100%'
   }
 
   return (
