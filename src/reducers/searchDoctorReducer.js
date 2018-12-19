@@ -14,7 +14,6 @@ const searchDoctorReducer = (state = initialState.currentSearchDoctorList, actio
       isValid: true,
       newDoctors: action.newDoctors
     });
-    console.log(receivedDoctorSearchSlice);
     return receivedDoctorSearchSlice;
   default:
     return state;
