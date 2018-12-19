@@ -6,6 +6,15 @@
 
 #### By Nikki Wong
 
+## Table of Contents
+* <a href='https://github.com/nikkiawong/lingomd#description'>Description</a>
+* <a href='https://github.com/nikkiawong/lingomd#planning'>Planning</a>
+* <a href='https://github.com/nikkiawong/lingomd#setup-on-osx'>Setup on OSX</a>
+* <a href='https://github.com/nikkiawong/lingomd#development-server'>Development server</a>
+* <a href='https://github.com/nikkiawong/lingomd#technologies-used'>Technologies Used</a>
+* <a href='https://github.com/nikkiawong/lingomd#notes'>Notes</a>
+* <a href='https://github.com/nikkiawong/lingomd#license'>License</a>
+
 ## Description
 
 <strong>Name of Student:</strong> Nikki Wong
@@ -16,7 +25,6 @@
 
 <strong>Absolute Minimum Features:</strong>
 * Users can search for a doctor by keyword
-* Users can narrow down results by language(s) spoken
 * Users can narrow down results by geographic location
 * Search queries call the BetterDoctor API to provide and filter data
 
@@ -27,6 +35,7 @@
 
 <strong>Additional Features/Stretch Goals:</strong>
 * Map view of results using Google Maps API or another maps REST API
+* Users can narrow down results by language(s) spoken
 * Well-developed user interface/design
 * Implementation of a web translator to auto-translate the site into other languages
 
@@ -100,6 +109,7 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:3000/`. The 
 * Webpack
 
 ## Notes
+As a result of a lack of accurate data within the API in regard to languages spoken by health care providers, I opted to leave out the functionality to filter by language as there would be too few results to display.
 
 ## License
 
