@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchButton from './SearchButton';
 import { fetchDoctorList, fetchGeocode } from './../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

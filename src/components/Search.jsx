@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchButton from './SearchButton';
 import Image from '../assets/images/lingomd-colorlogo-05.png';
 import BackgroundImage from '../assets/images/bg-image.jpg';
 import { fetchDoctorList, fetchGeocode } from './../actions';
