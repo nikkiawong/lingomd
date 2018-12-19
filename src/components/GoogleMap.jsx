@@ -9,6 +9,36 @@ export class MapContainer extends React.Component {
 
   render() {
     const newDoctors = this.props.newDoctors;
+    const isValid = this.props.isValid;
+
+    let bounds;
+
+    if (!isValid) {
+      const points = [
+        { lat: 42.02, lng: -77.01 },
+        { lat: 42.03, lng: -77.02 },
+        { lat: 41.03, lng: -77.04 },
+        { lat: 42.05, lng: -77.02 }
+      ];
+
+      bounds = new this.props.google.maps.LatLngBounds();
+      for (let i=0; i < points.length; i++) {
+        bounds.extend(points[i]);
+      }
+    } else {
+      const points = [];
+
+      newDoctors.map((doctor) => {
+        let point = doctor.center;
+        points.push(point);
+      })
+
+      bounds = new this.props.google.maps.LatLngBounds();
+      for (let i=0; i < points.length; i++) {
+        bounds.extend(points[i]);
+      }
+    }
+
     const style = {
       width: '425px',
       height: '700px',
@@ -26,36 +56,50 @@ export class MapContainer extends React.Component {
       marginRight: 'auto',
       border: '1px solid blue'
     }
-    return (
-      <div style={divStyle}>
+
+    if (isValid) {
+      return (
+        <div style={divStyle}>
         <div>
-          <Map
-          google={this.props.google}
-          zoom={14}
-          style={style}
-          onClick={this.onMapClicked}>
-          {newDoctors.map((doctor) =>
-            <Marker
-              key={doctor.key}
-              name={doctor.name}
-              position={doctor.center}
-            />
-          )}
-          <InfoWindow onClose={this.onInfoWindowClose}>
-          <div>
-          <h1>Name</h1>
-          </div>
-          </InfoWindow>
-          </Map>
+        <Map
+        google={this.props.google}
+        zoom={14}
+        style={style}
+        onClick={this.onMapClicked}
+        initialCenter={{
+          lat: 42.39,
+          lng: -72.52
+        }}
+        bounds={bounds}
+        >
+        {newDoctors.map((doctor) =>
+          <Marker
+          key={doctor.key}
+          name={doctor.name}
+          position={doctor.center}
+          />
+        )}
+        <InfoWindow onClose={this.onInfoWindowClose}>
+        <div>
+        <h1>Name</h1>
         </div>
-      </div>
-    );
+        </InfoWindow>
+        </Map>
+        </div>
+        </div>
+      );
+    } else {
+      return (
+        <span></span>
+      );
+    }
   }
 }
 
 const mapStateToProps = state => {
   return {
-    newDoctors: state.newDoctors
+    newDoctors: state.newDoctors,
+    isValid: state.isValid
   }
 }
 
