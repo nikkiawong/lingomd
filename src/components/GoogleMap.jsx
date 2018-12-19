@@ -50,11 +50,8 @@ export class MapContainer extends React.Component {
       height: '700px',
       marginLeft: '15px'
     }
-    const innerDivStyle = {
-      width: '80%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      border: '1px solid blue'
+    const hiddenDivStyle = {
+      display: 'none'
     }
 
     if (isValid) {
@@ -76,18 +73,13 @@ export class MapContainer extends React.Component {
           position={doctor.center}
           />
         )}
-        <InfoWindow onClose={this.onInfoWindowClose}>
-        <div>
-        <h1>Name</h1>
-        </div>
-        </InfoWindow>
         </Map>
         </div>
         </div>
       );
     } else {
       return (
-        <div style={divStyle}>
+        <div style={hiddenDivStyle}>
         <div>
         <Map
         google={this.props.google}
