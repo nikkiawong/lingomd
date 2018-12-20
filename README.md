@@ -7,13 +7,13 @@
 #### By Nikki Wong
 
 ## Table of Contents
-* <a href='https://github.com/nikkiawong/lingomd#description'>Description</a>
-* <a href='https://github.com/nikkiawong/lingomd#planning'>Planning</a>
-* <a href='https://github.com/nikkiawong/lingomd#setup-on-osx'>Setup on OSX</a>
-* <a href='https://github.com/nikkiawong/lingomd#development-server'>Development server</a>
-* <a href='https://github.com/nikkiawong/lingomd#technologies-used'>Technologies Used</a>
-* <a href='https://github.com/nikkiawong/lingomd#notes'>Notes</a>
-* <a href='https://github.com/nikkiawong/lingomd#license'>License</a>
+* <a style='color: #d22027;' href='https://github.com/nikkiawong/lingomd#description'>Description</a>
+* <a style='color: #d22027;' href='https://github.com/nikkiawong/lingomd#planning'>Planning</a>
+* <a style='color: #d22027;' href='https://github.com/nikkiawong/lingomd#setup-on-osx'>Setup on OSX</a>
+* <a style='color: #d22027;' href='https://github.com/nikkiawong/lingomd#development-server'>Development server</a>
+* <a style='color: #d22027;' href='https://github.com/nikkiawong/lingomd#technologies-used'>Technologies Used</a>
+* <a style='color: #d22027;' href='https://github.com/nikkiawong/lingomd#notes'>Notes</a>
+* <a style='color: #d22027;' href='https://github.com/nikkiawong/lingomd#license'>License</a>
 
 ## Description
 
